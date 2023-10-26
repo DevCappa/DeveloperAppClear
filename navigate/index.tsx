@@ -4,16 +4,22 @@ import { Entypo, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerContentScrollView, DrawerItem, DrawerItemList, createDrawerNavigator } from '@react-navigation/drawer';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import LoadData from '../screen/LoadData';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import { View } from 'react-native';
+import Start from '../screen/Inicio'
+import Login from '../screen/Login'
+import Registro from '../screen/Registro'
+import Recuperar from '../screen/Recuperar'
+import Perfil from '../screen/Perfil'
+import {Text} from 'react-native'
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Provider as PaperProvider,} from 'react-native-paper';
+import DrawerCustom from '../navigate/customMenu'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -39,8 +45,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
 
-      <Stack.Navigator initialRouteName='NotFound'>
-        <Stack.Screen name="NotFound" component={DrawerNavigate} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName='LoadData'>
+        <Stack.Screen name="Inicio" component={DrawerNavigate} options={{ headerShown: false }} />
+        <Stack.Screen name="LoadData" component={Start} options={{ headerShown: false }} />
+        <Stack.Screen name="registro" component={Registro} options={{ headerShown: false }} />
+        <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="recuperar" component={Recuperar} options={{ headerShown: false }} />
       </Stack.Navigator>
 
   );
@@ -55,9 +65,9 @@ const Drawer = createDrawerNavigator<RootTabParamList>();
 function DrawerNavigate() {
   return (
       <NavigationContainer independent={true}>
-        <Drawer.Navigator initialRouteName="Root">
-          <Drawer.Screen name="Root" component={BottomTabNavigator} />
-          <Drawer.Screen name="Inicio" component={LoadData} />
+        <Drawer.Navigator drawerContent={props => <DrawerCustom {...props} />} initialRouteName="Tienda">
+          <Drawer.Screen name="Tienda" component={BottomTabNavigator} />
+          <Drawer.Screen name="Perfil" component={Perfil} />
         </Drawer.Navigator>
       </NavigationContainer>
   )
@@ -76,7 +86,7 @@ function BottomTabNavigator() {
           tabBarStyle: {
             paddingHorizontal: 0,
             paddingTop: 0,
-            backgroundColor: '#000',
+            backgroundColor: '#ffffff',
             position: "absolute",
             zIndex:1,
             elevation:1,
@@ -85,10 +95,27 @@ function BottomTabNavigator() {
       })}>
           <BottomTab.Screen name="Inicio" component={LoadData} 
           options={({ navigation }: RootTabScreenProps<"Inicio">) => ({
-              title: 'Inicio',
+              title: 'Tienda',
               headerShown: false,
-              tabBarActiveTintColor: "#fff",
-              tabBarIcon: ({ color }) => <Entypo name="home" size={hp("3.8%")} color={color} />,
+              tabBarActiveTintColor: "#003399",
+              tabBarInactiveTintColor:'#4f4f4f',
+              tabBarIcon: ({ color }) => <Entypo name="shop" size={hp("3.5%")} color={color}/>,
+            })}/>
+            <BottomTab.Screen name="Creditos" component={LoadData} 
+          options={({ navigation }: RootTabScreenProps<"Inicio">) => ({
+              title: 'Creditos',
+              headerShown: false,
+              tabBarActiveTintColor: "#003399",
+              tabBarInactiveTintColor:'#4f4f4f',
+              tabBarIcon: ({ color }) => <Entypo name="credit-card" size={hp("3.5%")} color={color}/>,
+            })}/>
+            <BottomTab.Screen name="Rapidito" component={LoadData} 
+          options={({ navigation }: RootTabScreenProps<"Inicio">) => ({
+              title: 'Rapidito',
+              headerShown: false,
+              tabBarActiveTintColor: "#003399",
+              tabBarInactiveTintColor:'#4f4f4f',
+              tabBarIcon: ({ color }) => <Entypo name="direction" size={hp("3.5%")} color={color}/>,
             })}/>
         </BottomTab.Navigator>
       </NavigationContainer>

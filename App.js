@@ -16,7 +16,7 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
-        <StatusBar backgroundColor='#fff' animated={true} />
+        <StatusBar style="light" backgroundColor='#003399' animated={true} />
       </SafeAreaProvider>
     );
   }

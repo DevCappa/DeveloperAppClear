@@ -14,9 +14,13 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: undefined;
+  Tienda: undefined;
   NotFound: undefined;
   Inicio: undefined;
+  LoadData: undefined;
+  registro: undefined;
+  login: undefined;
+  recuperar: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -25,9 +29,12 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-    Root: undefined;
+    Tienda: undefined;
     NotFound: undefined;
     Inicio: undefined;
+    Perfil: undefined;
+    Rapidito: undefined;
+    Creditos: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
