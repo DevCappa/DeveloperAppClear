@@ -36,7 +36,7 @@ export default function Registrar({ navigation }) {
             <ScrollView>
                 <View style={styles.background}>
                     <Animated.Image entering={enteringAnimation} style={[styles.img]} source={img}></Animated.Image>
-                    <Text style={styles.texto}>Registro RemoraApp</Text>
+                    <Text style={styles.texto}>Registro RemorApp</Text>
                     <View style={styles.margen}>
                     <Input response={navigation}></Input>
                     </View>

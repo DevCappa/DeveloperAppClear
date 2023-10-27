@@ -20,6 +20,7 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Provider as PaperProvider,} from 'react-native-paper';
 import DrawerCustom from '../navigate/customMenu'
+import Rapidito from '../screen/Rapidito';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -65,8 +66,8 @@ const Drawer = createDrawerNavigator<RootTabParamList>();
 function DrawerNavigate() {
   return (
       <NavigationContainer independent={true}>
-        <Drawer.Navigator drawerContent={props => <DrawerCustom {...props} />} initialRouteName="Tienda">
-          <Drawer.Screen name="Tienda" component={BottomTabNavigator} />
+        <Drawer.Navigator drawerContent={props => <DrawerCustom {...props} />} initialRouteName="RemorApp">
+          <Drawer.Screen name="RemorApp" component={BottomTabNavigator} />
           <Drawer.Screen name="Perfil" component={Perfil} />
         </Drawer.Navigator>
       </NavigationContainer>
@@ -109,7 +110,7 @@ function BottomTabNavigator() {
               tabBarInactiveTintColor:'#4f4f4f',
               tabBarIcon: ({ color }) => <Entypo name="credit-card" size={hp("3.5%")} color={color}/>,
             })}/>
-            <BottomTab.Screen name="Rapidito" component={LoadData} 
+            <BottomTab.Screen name="Rapidito" component={Rapidito} 
           options={({ navigation }: RootTabScreenProps<"Inicio">) => ({
               title: 'Rapidito',
               headerShown: false,

@@ -37,7 +37,7 @@ export default function LoadData({ navigation }) {
             <ScrollView>
                 <View style={styles.background}>
                     <Animated.Image entering={enteringAnimation} style={[styles.img]} source={img}></Animated.Image>
-                    <Text style={styles.texto}>Login RemoraApp</Text>
+                    <Text style={styles.texto}>Login RemorApp</Text>
                     <View style={styles.margen}>
                     <Input response={navigation}></Input>
                     </View>

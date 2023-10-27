@@ -51,7 +51,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
               onFocus={handlePress}
               onBlur={ofHandel}
               style={styles.input}
-              maxLength={20}
+              maxLength={80}
               onChangeText={text => onChangeText(text)}
               value={value}></TextInput>
         </Animated.View>

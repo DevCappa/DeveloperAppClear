@@ -35,6 +35,7 @@ export type RootTabParamList = {
     Perfil: undefined;
     Rapidito: undefined;
     Creditos: undefined;
+    RemorApp: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

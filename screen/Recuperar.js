@@ -37,7 +37,7 @@ export default function Recuperar({ navigation }) {
             <ScrollView>
                 <View style={styles.background}>
                     <Animated.Image entering={enteringAnimation} style={[styles.img]} source={img}></Animated.Image>
-                    <Text style={styles.texto}>Recuperar Contraseña RemoraApp</Text>
+                    <Text style={styles.texto}>Recuperar Contraseña RemorApp</Text>
                     <View style={styles.margen}>
                     <Input response={navigation}></Input>
                     </View>
